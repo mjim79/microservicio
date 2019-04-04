@@ -9,6 +9,7 @@ import lombok.*;
 public class Alumno {
 
     @Id
+    // @GeneratedValue
     private Integer id;
 
     private String apellidos;

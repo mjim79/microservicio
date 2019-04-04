@@ -29,4 +29,21 @@ public class ControladorAlumno {
         return this.servicioAlumno.obtenerTodosLosAlumnos();
     }
 
+    @GetMapping("/alumnos/{id}")
+    public Alumno obtenerAlumnoPorId(@PathVariable Integer id) {
+        return this.servicioAlumno.obtenerAlumnoPorId(id);
+    }
+
+    @PutMapping("/alumnos/{id}")
+    public void actualizarAlumno(@PathVariable Integer id, @RequestBody Alumno alumno) {
+
+        this.servicioAlumno.actualizarAlumno(id, alumno);
+    }
+
+    @DeleteMapping("/alumnos/{id}")
+    public void eliminarAlumno(@PathVariable Integer id) {
+
+        this.servicioAlumno.eliminarAlumno(id);
+    }
+
 }

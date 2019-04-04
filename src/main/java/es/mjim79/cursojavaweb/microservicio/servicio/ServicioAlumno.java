@@ -10,4 +10,10 @@ public interface ServicioAlumno {
 
     List<Alumno> obtenerTodosLosAlumnos();
 
+    Alumno obtenerAlumnoPorId(Integer id);
+
+    void actualizarAlumno(Integer id, Alumno alumno);
+
+    void eliminarAlumno(Integer id);
+
 }

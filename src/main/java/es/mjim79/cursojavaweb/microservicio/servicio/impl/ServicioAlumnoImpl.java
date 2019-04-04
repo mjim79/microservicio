@@ -30,4 +30,33 @@ public class ServicioAlumnoImpl implements ServicioAlumno {
         return this.repositorioAlumno.findAll();
     }
 
+    @Override
+    public Alumno obtenerAlumnoPorId(Integer id) {
+
+        this.verificaExisteAlumno(id);
+        return this.repositorioAlumno.findById(id).orElse(null);
+
+    }
+
+    @Override
+    public void actualizarAlumno(Integer id, Alumno alumno) {
+
+        this.verificaExisteAlumno(id);
+        this.repositorioAlumno.save(alumno);
+    }
+
+    @Override
+    public void eliminarAlumno(Integer id) {
+
+        this.verificaExisteAlumno(id);
+        this.repositorioAlumno.deleteById(id);
+
+    }
+
+    private void verificaExisteAlumno(Integer id) {
+        if (!this.repositorioAlumno.existsById(id)) {
+            throw new AlumnoException("No existe el alumno con id " + id);
+        }
+    }
+
 }
