@@ -1,17 +1,10 @@
-package es.mjim79.cursojavaweb.microservicio.modelo;
-
-import javax.persistence.*;
+package es.mjim79.cursojavaweb.microservicio.controlador;
 
 import lombok.*;
 
 @Data
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
-@Entity
-public class Alumno {
+public class AlumnoRequest {
 
-    @Id
     private Integer id;
 
     private String apellidos;

@@ -19,9 +19,9 @@ public class ControladorAlumno {
     }
 
     @PostMapping("/alumnos")
-    public Alumno crearAlumno(@RequestBody Alumno alumno) {
+    public Alumno crearAlumno(@RequestBody AlumnoRequest alumnoRequest) {
 
-        return this.servicioAlumno.crearAlumno(alumno);
+        return this.servicioAlumno.crearAlumno(AlumnoRequestMapper.toAlumno(alumnoRequest));
     }
 
     @GetMapping("/alumnos")
@@ -35,9 +35,9 @@ public class ControladorAlumno {
     }
 
     @PutMapping("/alumnos/{id}")
-    public void actualizarAlumno(@PathVariable Integer id, @RequestBody Alumno alumno) {
+    public void actualizarAlumno(@PathVariable Integer id, @RequestBody AlumnoRequest alumnoRequest) {
 
-        this.servicioAlumno.actualizarAlumno(id, alumno);
+        this.servicioAlumno.actualizarAlumno(id, AlumnoRequestMapper.toAlumno(alumnoRequest));
     }
 
     @DeleteMapping("/alumnos/{id}")
